@@ -8,7 +8,16 @@
                     <div class="card-body">
                         <h5 class="card-title">{{$book->title}}</h5>
                         <p class="card-text">{{$book->info}}</p>
-                        <a href="{{asset("storage/BooksFiles/".$book->file)}}" class="btn btn-primary">{{__("usercategory.Download")}}</a>
+                        <p class="card-text text-muted">{{__("usercategory.download Times")}}:{{$book->nums_of_download}}</p>
+                        <a href="#" id="down" onclick="Fire();" onmousedown="downloadd();"     class="btn btn-primary">{{__("usercategory.Download")}}</a>
+                        <script>
+                            function downloadd() {
+                                window.open('{{asset("storage/BooksFiles/".$book->file)}}');
+                            }
+                            function Fire() {
+                                    window.open('{{route("bookEvent.fire",$book->id)}}');
+                                }
+                    </script>
                         @if(Auth::user()->id === $book->user_id)
                             <a href="{{route("book.delete",$book->id)}}" class="btn btn-danger">{{__("usercategory.Delete")}}</a>
                         @endif
@@ -18,4 +27,5 @@
             @include("layouts.commentsBox")
         </div>
     </div>
+
 @endsection

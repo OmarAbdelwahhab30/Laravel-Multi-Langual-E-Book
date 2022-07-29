@@ -15,5 +15,6 @@ return [
 
     'Download' => 'Download',
     'More Info' => 'More Info',
-    'Delete' => 'حذف',
+    'Delete' => 'Delete',
+    'download Times' =>'Download Times',
 ];

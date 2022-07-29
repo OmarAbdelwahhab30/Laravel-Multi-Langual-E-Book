@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Events\DownloadBookEvent;
 use App\Http\Controllers\Controller;
 use App\Models\Book;
 use Illuminate\Http\Request;
@@ -19,5 +20,12 @@ class UserBookController extends Controller
         $book = Book::findOrFail($bookid);
         $book->delete();
         return redirect("User/category/".$book->category_id)->with("success",__("alerts.Your Book Has been Deleted Successfully"));
+    }
+
+    public function FireDownloadBookEvent($bookid)
+    {
+        $book = Book::findOrFail($bookid);
+        event(new DownloadBookEvent($book));
+        return redirect()->back();
     }
 }

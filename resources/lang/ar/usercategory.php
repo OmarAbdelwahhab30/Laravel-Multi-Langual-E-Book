@@ -16,4 +16,5 @@ return [
     'Download' => 'تحميل',
     'More Info' => 'المزيد من المعلومات ',
     'Delete' => 'حذف',
+    'download Times' =>'عدد مرات التحميل'
 ];

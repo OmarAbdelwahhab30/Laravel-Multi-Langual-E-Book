@@ -24,6 +24,7 @@ class CreateBooksTable extends Migration
             $table->foreign('user_id')->references("id")->on("users")->cascadeOnUpdate()->cascadeOnUpdate();
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references("id")->on("categories")->cascadeOnUpdate()->cascadeOnUpdate();
+            $table->integer("nums_of_download")->unsigned();
             $table->timestamps();
         });
     }

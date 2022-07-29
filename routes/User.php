@@ -30,6 +30,7 @@ Route::get("category/{id}","UserCategoryController@index")->name("user.category"
 //UserBookController
 Route::get("book/{id}","UserBookController@index")->name("user.book");
 Route::get("deletebook/{id}","UserBookController@DeleteBook")->name("book.delete");
+Route::get("bookEvent/{id}","UserBookController@FireDownloadBookEvent")->name("bookEvent.fire");
 
 
 //UserCommentsController
