@@ -36,6 +36,6 @@ class IncreaseBookDownloadsListener
     {
         $book->nums_of_download+=1;
         $book->save();
-        session()->put('BookIsDownloaded', Auth::user()->id);
+        session()->put('BookIsDownloaded',$book->id. Auth::user()->id);
     }
 }
