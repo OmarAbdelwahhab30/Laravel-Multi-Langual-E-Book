@@ -77,14 +77,14 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-
+                        @if(Auth::user()->role[0]->name == "admin")
                             <a href="{{route('main.index')}}" class="test">
                                 {{__("welcome.Go To Administration Dashboard")}}
                             </a>
+                        @endif
                             <a href="{{route("user.home")}}">
                                 {{__("welcome.Start Exploring Library")}}
                             </a>
@@ -101,6 +101,16 @@
                         @endif
 
                     @endauth
+
+                            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                <span >
+                                    <a  class="text-decoration-none" style="color: white" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                        {{ $properties['native'] }}
+                                    </a>
+                                    &nbsp; &nbsp; &nbsp; 
+                                </span>
+                            @endforeach
+
                 </div>
             @endif
 

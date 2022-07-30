@@ -15,4 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Auth::routes();
-Route::get('/', 'HomeController@index')->name('home')->middleware(['auth','CheckRole:user,admin']);
+Route::get('/', 'HomeController@index')->name('home');
