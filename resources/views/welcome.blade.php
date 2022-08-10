@@ -107,7 +107,7 @@
                                     <a  class="text-decoration-none" style="color: white" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
                                         {{ $properties['native'] }}
                                     </a>
-                                    &nbsp; &nbsp; &nbsp; 
+                                    &nbsp; &nbsp; &nbsp;
                                 </span>
                             @endforeach
 
